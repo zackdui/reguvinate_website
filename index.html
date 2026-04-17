@@ -1,0 +1,1837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rejuvenate with Ganit | Aesthetic Nurse Injector NYC</title>
+
+  <!-- =============================================
+       FONTS
+       – Cormorant Garamond: elegant serif for headings
+       – Jost: clean geometric sans for body / nav
+  ============================================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =============================================
+       CSS CUSTOM PROPERTIES — edit these to retheme
+    ============================================= */
+    :root {
+      --color-bg:          #F7F5F2;   /* warm off-white background */
+      --color-surface:     #EFECE7;   /* slightly darker card background */
+      --color-dark:        #1E1B18;   /* near-black for text & accents */
+      --color-mid:         #6B6560;   /* mid-tone body text */
+      --color-accent:      #B8A88A;   /* warm gold-taupe accent */
+      --color-accent-dark: #8C7A60;   /* darker accent variant */
+      --color-white:       #FDFCFB;   /* pure white for contrast blocks */
+      --color-divider:     rgba(30,27,24,0.12);
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Jost', sans-serif;
+
+      --max-width: 1160px;
+      --section-pad: 96px 24px;
+    }
+
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--color-bg);
+      color: var(--color-dark);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* =============================================
+       UTILITY CLASSES
+    ============================================= */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Thin decorative rule */
+    .rule {
+      width: 48px;
+      height: 1px;
+      background: var(--color-accent);
+      margin: 0 auto 24px;
+    }
+
+    /* Section label (small caps above heading) */
+    .label {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-accent-dark);
+      margin-bottom: 12px;
+    }
+
+    /* Display heading style */
+    .display-heading {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(36px, 5vw, 64px);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+
+    /* Sub-heading */
+    .sub-heading {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(22px, 3vw, 32px);
+      line-height: 1.25;
+    }
+
+    /* Body text muted */
+    .muted { color: var(--color-mid); }
+
+    /* CTA Button — primary */
+    .btn {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 16px 40px;
+      border: 1px solid var(--color-dark);
+      color: var(--color-dark);
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--color-dark);
+      color: var(--color-white);
+    }
+
+    /* CTA Button — filled */
+    .btn-filled {
+      background: var(--color-dark);
+      color: var(--color-white);
+    }
+
+    .btn-filled:hover {
+      background: var(--color-accent-dark);
+      border-color: var(--color-accent-dark);
+    }
+
+    /* =============================================
+       NAVIGATION
+    ============================================= */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 40px;
+      background: rgba(247, 245, 242, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-divider);
+      transition: padding 0.3s;
+    }
+
+    /* Site logo / brand in nav */
+    .nav-brand {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 18px;
+      letter-spacing: 0.04em;
+      color: var(--color-dark);
+      display: inline-block;
+      transform: scale(1.8);
+      transform-origin: left center;
+    }
+
+    .nav-brand span {
+      font-style: italic;
+      color: var(--color-accent-dark);
+    }
+
+    /* Nav links list */
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 36px;
+    }
+
+    .nav-links a {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--color-dark); }
+
+    /* Nav CTA */
+    .nav-cta {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 8px 22px;
+      border: 1px solid var(--color-dark);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .nav-cta:hover {
+      background: var(--color-dark);
+      color: var(--color-white);
+    }
+
+    /* Mobile hamburger — hidden on desktop */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--color-dark);
+      transition: transform 0.3s;
+    }
+
+    /* =============================================
+       HERO SECTION
+    ============================================= */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle grain-like background texture */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(184,168,138,0.12) 0%, transparent 65%),
+                  radial-gradient(ellipse at 20% 80%, rgba(184,168,138,0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-text {}
+
+    .hero-text .label { margin-bottom: 20px; }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(44px, 6.5vw, 88px);
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--color-accent-dark);
+    }
+
+    .hero-desc {
+      font-size: 15px;
+      color: var(--color-mid);
+      max-width: 420px;
+      margin-bottom: 44px;
+      line-height: 1.8;
+    }
+
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    /* Hero image frame */
+    .hero-image-wrap {
+      position: relative;
+    }
+
+    .hero-image-wrap::before {
+      /* Decorative offset frame behind the photo */
+      content: '';
+      position: absolute;
+      top: 24px; right: -24px;
+      width: 100%; height: 100%;
+      border: 1px solid var(--color-accent);
+      border-radius: 2px;
+      z-index: 0;
+    }
+
+    .hero-image-wrap img {
+      width: 100%;
+      height: 580px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 2px;
+      position: relative;
+      z-index: 1;
+      filter: saturate(0.92) contrast(1.04);
+    }
+
+    /* Floating stat card on hero image */
+    .hero-badge {
+      position: absolute;
+      bottom: 32px;
+      left: -32px;
+      z-index: 2;
+      background: var(--color-white);
+      padding: 20px 28px;
+      border-left: 3px solid var(--color-accent);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+    }
+
+    .hero-badge .num {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 300;
+      line-height: 1;
+      color: var(--color-dark);
+    }
+
+    .hero-badge .txt {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+      margin-top: 4px;
+    }
+
+    /* =============================================
+       SERVICES STRIP (below hero)
+    ============================================= */
+    #services-strip {
+      background: var(--color-dark);
+      color: var(--color-white);
+      padding: 28px 40px;
+      overflow: hidden;
+    }
+
+    .strip-track {
+      display: flex;
+      gap: 60px;
+      white-space: nowrap;
+      animation: marquee 22s linear infinite;
+    }
+
+    .strip-track span {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      flex-shrink: 0;
+    }
+
+    .strip-track span.accent {
+      color: var(--color-accent);
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* =============================================
+       ABOUT / BIO SECTION
+    ============================================= */
+    #about {
+      padding: var(--section-pad);
+      background: var(--color-white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-image-col {}
+
+    .about-image-wrap {
+      position: relative;
+    }
+
+    .about-image-wrap img {
+      width: 100%;
+      height: 560px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 2px;
+      filter: saturate(0.9);
+    }
+
+    /* Small accent block overlapping the image */
+    .about-accent-block {
+      position: absolute;
+      bottom: -24px; right: -24px;
+      width: 120px; height: 120px;
+      background: var(--color-accent);
+      opacity: 0.25;
+      border-radius: 2px;
+    }
+
+    .about-text-col {}
+
+    .about-text-col .label { margin-bottom: 8px; }
+
+    .about-text-col .display-heading { margin-bottom: 8px; }
+
+    .about-credential {
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-accent-dark);
+      margin-bottom: 32px;
+    }
+
+    .about-bio p {
+      font-size: 15px;
+      color: var(--color-mid);
+      line-height: 1.85;
+      margin-bottom: 18px;
+    }
+
+    .about-bio p strong {
+      font-weight: 500;
+      color: var(--color-dark);
+    }
+
+    /* Credentials chips */
+    .credentials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 36px;
+    }
+
+    .cred-chip {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      border: 1px solid var(--color-divider);
+      color: var(--color-mid);
+      border-radius: 100px;
+    }
+
+    /* =============================================
+       TREATMENTS SECTION
+    ============================================= */
+    #treatments {
+      padding: var(--section-pad);
+      background: var(--color-bg);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .section-header .display-heading { margin-bottom: 16px; }
+
+    .section-header p {
+      font-size: 15px;
+      color: var(--color-mid);
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    /* Grid of treatment cards */
+    .treatments-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    /* Each treatment card */
+    .treatment-card {
+      background: var(--color-surface);
+      padding: 48px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.35s;
+      cursor: default;
+    }
+
+    .treatment-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--color-accent);
+      transition: width 0.4s ease;
+    }
+
+    .treatment-card:hover { background: var(--color-white); }
+    .treatment-card:hover::after { width: 100%; }
+
+    .treatment-number {
+      font-family: var(--font-display);
+      font-size: 64px;
+      font-weight: 300;
+      color: var(--color-accent);
+      opacity: 0.35;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .treatment-name {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+
+    .treatment-desc {
+      font-size: 13px;
+      color: var(--color-mid);
+      line-height: 1.8;
+    }
+
+    /* =============================================
+       WRINKLE RELAXER PRICING SECTION
+    ============================================= */
+    #pricing {
+      padding: var(--section-pad);
+      background: var(--color-dark);
+      color: var(--color-white);
+    }
+
+    #pricing .section-header .display-heading { color: var(--color-white); }
+    #pricing .section-header p { color: rgba(255,255,255,0.55); }
+    #pricing .rule { background: var(--color-accent); }
+    #pricing .label { color: var(--color-accent); }
+
+    /* Pricing cards row */
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-bottom: 48px;
+    }
+
+    .price-card {
+      background: rgba(255,255,255,0.05);
+      padding: 48px 28px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .price-card:hover {
+      background: rgba(255,255,255,0.09);
+      border-color: var(--color-accent);
+    }
+
+    .price-card .area-name {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 20px;
+    }
+
+    .price-card .price {
+      font-family: var(--font-display);
+      font-size: 52px;
+      font-weight: 300;
+      color: var(--color-white);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .price-card .price-note {
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.1em;
+    }
+
+    /* Standalone price items (Lip Flip, Chin Dimpling, Consultation) */
+    .pricing-extras {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-bottom: 48px;
+    }
+
+    .price-extra {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    .price-extra .extra-name {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 10px;
+    }
+
+    .price-extra .extra-price {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--color-white);
+    }
+
+    .price-extra .extra-note {
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      margin-top: 6px;
+    }
+
+    #pricing .pricing-cta-note {
+      text-align: center;
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      font-style: italic;
+      margin-top: 24px;
+    }
+
+    /* =============================================
+       TREATMENT DETAIL SECTIONS (Glabella, Forehead, etc.)
+    ============================================= */
+    #treatment-details {
+      padding: var(--section-pad);
+      background: var(--color-white);
+    }
+
+    .detail-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px 80px;
+    }
+
+    .detail-item {
+      padding-top: 24px;
+      border-top: 1px solid var(--color-divider);
+    }
+
+    .detail-item h3 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+
+    .detail-item .detail-subtitle {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-accent-dark);
+      margin-bottom: 12px;
+    }
+
+    .detail-item p {
+      font-size: 13px;
+      color: var(--color-mid);
+      line-height: 1.85;
+    }
+
+    /* =============================================
+       CARE INSTRUCTIONS SECTION (compact / secondary)
+    ============================================= */
+    #care-info {
+      padding: 64px 24px;
+      background: var(--color-bg);
+      border-top: 1px solid var(--color-divider);
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .care-wrap {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .care-header {
+      margin-bottom: 24px;
+    }
+
+    .care-header .sub-heading {
+      margin-bottom: 8px;
+      font-size: clamp(20px, 3vw, 28px);
+    }
+
+    .care-intro {
+      font-size: 13px;
+      color: var(--color-mid);
+      max-width: 640px;
+    }
+
+    .care-list {
+      border-top: 1px solid var(--color-divider);
+      background: var(--color-white);
+    }
+
+    .care-item {
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .care-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 11px;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+      color: var(--color-dark);
+    }
+
+    .care-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .care-toggle {
+      font-family: var(--font-display);
+      font-size: 22px;
+      line-height: 1;
+      color: var(--color-accent-dark);
+      transition: transform 0.2s ease;
+    }
+
+    .care-item[open] .care-toggle {
+      transform: rotate(45deg);
+    }
+
+    .care-content {
+      padding: 0 20px 18px;
+    }
+
+    .care-content p {
+      font-size: 12px;
+      color: var(--color-mid);
+      line-height: 1.8;
+      margin-bottom: 10px;
+    }
+
+    .care-content ul {
+      margin: 0 0 10px 18px;
+    }
+
+    .care-content li {
+      font-size: 12px;
+      color: var(--color-mid);
+      line-height: 1.8;
+      margin-bottom: 4px;
+    }
+
+    .care-warning-title {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-accent-dark);
+      margin-top: 14px;
+      margin-bottom: 8px;
+    }
+
+    .care-note {
+      margin-top: 16px;
+      font-size: 11px;
+      color: var(--color-mid);
+      font-style: italic;
+    }
+
+    /* =============================================
+       PHILOSOPHY / QUOTE BAND
+    ============================================= */
+    #philosophy {
+      padding: 100px 24px;
+      background: var(--color-surface);
+      text-align: center;
+    }
+
+    .philosophy-quote {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 4vw, 48px);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.35;
+      max-width: 820px;
+      margin: 0 auto 24px;
+      color: var(--color-dark);
+    }
+
+    .philosophy-attr {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-accent-dark);
+    }
+
+    /* =============================================
+       CONTACT / BOOKING SECTION
+    ============================================= */
+    #contact {
+      padding: var(--section-pad);
+      background: var(--color-bg);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-info .display-heading { margin-bottom: 24px; }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .contact-item .contact-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-accent-dark);
+    }
+
+    .contact-item .contact-value {
+      font-size: 15px;
+      color: var(--color-dark);
+    }
+
+    /* Simple contact form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .contact-form label {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    /* All inputs, selects, textareas share base styling */
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--color-divider);
+      padding: 10px 0;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--color-dark);
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+    }
+
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      border-bottom-color: var(--color-accent-dark);
+    }
+
+    .contact-form textarea {
+      resize: none;
+      height: 100px;
+    }
+
+    .contact-form .form-note {
+      font-size: 12px;
+      color: var(--color-mid);
+      font-style: italic;
+      margin-top: -8px;
+    }
+
+    .form-success {
+      display: none;
+      font-size: 12px;
+      color: var(--color-dark);
+      background: var(--color-surface);
+      border: 1px solid var(--color-divider);
+      padding: 12px 14px;
+      margin-bottom: 14px;
+    }
+
+    .form-success.visible {
+      display: block;
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+      background: var(--color-dark);
+      color: rgba(255,255,255,0.5);
+      padding: 56px 40px 32px;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--color-white);
+      margin-bottom: 12px;
+    }
+
+    .footer-brand em { font-style: italic; color: var(--color-accent); }
+
+    .footer-tagline {
+      font-size: 12px;
+      line-height: 1.7;
+      max-width: 260px;
+    }
+
+    .footer-col h4 {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 20px;
+    }
+
+    .footer-col ul { list-style: none; }
+
+    .footer-col ul li { margin-bottom: 10px; }
+
+    .footer-col ul li a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover { color: var(--color-white); }
+
+    .footer-bottom {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+    }
+
+    /* =============================================
+       FADE-IN ANIMATION (triggered on scroll)
+    ============================================= */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger children delays */
+    .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .fade-up:nth-child(3) { transition-delay: 0.2s; }
+    .fade-up:nth-child(4) { transition-delay: 0.3s; }
+    .fade-up:nth-child(5) { transition-delay: 0.4s; }
+    .fade-up:nth-child(6) { transition-delay: 0.5s; }
+
+    /* =============================================
+       RESPONSIVE — TABLET (≤900px)
+    ============================================= */
+    @media (max-width: 900px) {
+      :root { --section-pad: 72px 20px; }
+
+      nav { padding: 12px 24px; }
+
+      .nav-links, .nav-cta { display: none; }
+
+      .nav-toggle { display: flex; }
+
+      /* Mobile nav overlay */
+      .mobile-nav {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: var(--color-dark);
+        z-index: 99;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+      }
+
+      .mobile-nav.open { display: flex; }
+
+      .mobile-nav a {
+        font-family: var(--font-display);
+        font-size: 32px;
+        font-weight: 300;
+        color: var(--color-white);
+        letter-spacing: 0.02em;
+      }
+
+      .mobile-nav .mobile-close {
+        position: absolute;
+        top: 24px; right: 28px;
+        font-size: 28px;
+        color: rgba(255,255,255,0.5);
+        cursor: pointer;
+        background: none; border: none;
+      }
+
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+
+      .hero-image-wrap::before { display: none; }
+      .hero-badge { left: 0; bottom: -20px; }
+      .hero-image-wrap img { height: 420px; }
+
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-image-wrap img { height: 380px; }
+      .about-accent-block { display: none; }
+
+      .treatments-grid { grid-template-columns: 1fr 1fr; }
+
+      .pricing-cards { grid-template-columns: repeat(2, 1fr); }
+      .pricing-extras { grid-template-columns: 1fr 1fr; }
+
+      .detail-list { grid-template-columns: 1fr; gap: 32px; }
+
+      #care-info {
+        padding: 56px 20px;
+      }
+
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+
+    /* =============================================
+       RESPONSIVE — MOBILE (≤580px)
+    ============================================= */
+    @media (max-width: 580px) {
+      .treatments-grid { grid-template-columns: 1fr; }
+      .pricing-cards { grid-template-columns: 1fr 1fr; }
+      .pricing-extras { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =============================================
+       MOBILE NAV OVERLAY
+       – toggled by the hamburger button
+  ============================================= -->
+  <div class="mobile-nav" id="mobileNav">
+    <button class="mobile-close" onclick="toggleNav()">✕</button>
+    <a href="#about"      onclick="toggleNav()">About</a>
+    <a href="#treatments" onclick="toggleNav()">Treatments</a>
+    <a href="#pricing"    onclick="toggleNav()">Pricing</a>
+    <a href="#contact"    onclick="toggleNav()">Book Now</a>
+  </div>
+
+  <!-- =============================================
+       NAVIGATION BAR
+  ============================================= -->
+  <nav>
+    <a href="#" class="nav-brand"><img src="ganit_logo_2.png" alt="Rejuvenate with Ganit" style="height: 48px; width: auto;" /></a>
+
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#treatments">Treatments</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <a href="#contact" class="btn nav-cta">Book a Consultation</a>
+
+    <!-- Hamburger — visible on mobile only -->
+    <button class="nav-toggle" onclick="toggleNav()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- =============================================
+       HERO SECTION
+       – Full-height landing view with photo + headline
+  ============================================= -->
+  <section id="hero">
+    <div class="hero-inner container">
+
+      <!-- Left: text block -->
+      <div class="hero-text">
+        <p class="label">Aesthetic Medicine · New York City</p>
+        <h1 class="hero-title">
+          Natural<br><em>Beauty,</em><br>Refined.
+        </h1>
+        <p class="hero-desc">
+          Expert injectable treatments tailored to your unique features —
+          delivering refreshed, rejuvenated results that look effortlessly you.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-filled">Book a Consultation</a>
+          <a href="#treatments" class="btn">Explore Treatments</a>
+        </div>
+      </div>
+
+      <!-- Right: photo of Ganit -->
+      <div class="hero-image-wrap">
+        <!--
+          PHOTO: Replace the src below with the actual path to Ganit's image.
+          Make sure it's in the same folder as this HTML file, or update the path.
+        -->
+        <img src="ganit_photo.jpeg" alt="Ganit Reis, RN BS-N — Aesthetic Nurse Injector" />
+
+        <!-- Floating badge showing years of experience -->
+        <div class="hero-badge">
+          <div class="num">11+</div>
+          <div class="txt">Years of Experience</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       MARQUEE STRIP — scrolling list of services
+  ============================================= -->
+  <div id="services-strip">
+    <div class="strip-track" aria-hidden="true">
+      <!-- 
+        This comment explains the marquee animation technique:
+        
+        By duplicating the content, when the first set of items scrolls off-screen,
+        the duplicate set is already positioned to appear seamlessly in its place.
+        This creates the illusion of an infinite, continuous scroll with no gap or jump.
+        
+        Without duplication, the marquee would loop back to the start, creating a jarring
+        visual break. The duplicate ensures smooth, uninterrupted movement.
+      -->
+      <!-- Duplicate set so the marquee loops seamlessly -->
+      <span class="accent">✦</span>
+      <span>Neuromodulator Wrinkle Relaxer</span>
+      <span class="accent">✦</span>
+      <span>Dermal Filler</span>
+      <span class="accent">✦</span>
+      <span>Full Face Harmonization</span>
+      <span class="accent">✦</span>
+      <span>Skin Care Treatments</span>
+      <span class="accent">✦</span>
+      <span>Microneedling</span>
+      <span class="accent">✦</span>
+      <span>Hyperhidrosis</span>
+      <span class="accent">✦</span>
+      <span>TMJ Treatment</span>
+      <span class="accent">✦</span>
+      <span>Neuromodulator Wrinkle Relaxer</span>
+      <span class="accent">✦</span>
+      <span>Dermal Filler</span>
+      <span class="accent">✦</span>
+      <span>Full Face Harmonization</span>
+      <span class="accent">✦</span>
+      <span>Skin Care Treatments</span>
+      <span class="accent">✦</span>
+      <span>Microneedling</span>
+      <span class="accent">✦</span>
+      <span>Hyperhidrosis</span>
+      <span class="accent">✦</span>
+      <span>TMJ Treatment</span>
+    </div>
+  </div>
+
+  <!-- =============================================
+       ABOUT / BIO SECTION
+  ============================================= -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+
+        <!-- Left: photo -->
+        <div class="about-image-col fade-up">
+          <div class="about-image-wrap">
+            <img src="ganit_pic_2.jpg" alt="Ganit Reis RN BS-N" />
+          </div>
+        </div>
+
+        <!-- Right: bio text -->
+        <div class="about-text-col fade-up">
+          <p class="label">Meet Your Injector</p>
+          <h2 class="display-heading">Ganit Reis</h2>
+          <p class="about-credential">RN BS-N · Aesthetic Nurse Injector</p>
+
+          <div class="about-bio">
+            <p>
+              Ganit Reis RN BS-N is the founder of <strong>Rejuvenate with Ganit</strong> and the leader of the
+              aesthetic team at Vitality Health Group. A Chicago native, she earned a Bachelor of Arts
+              in Psychology and Biology with honors — Magna Cum Laude — from Touro College NYC in 2014,
+              before graduating at the top of her Nursing class in 2018.
+            </p>
+            <p>
+              Licensed by the New York State Department of Health, Ganit has trained under renowned plastic
+              surgeons including <strong>Dr. Daniel C. Baker</strong> and <strong>Dr. Steven M. Levine</strong>,
+              and brings <strong>11 years of experience</strong> in aesthetic medicine to every appointment.
+              She specializes in advanced injectables — dermal fillers and neuromodulators — with a particular
+              mastery for balancing natural beauty with a rejuvenated, refreshed look.
+            </p>
+            <p>
+              Ganit believes in a holistic approach: personalized treatment plans that honor each client's
+              unique features and goals. She regularly attends workshops and conferences to stay at the
+              forefront of industry techniques.
+            </p>
+            <p>
+              Outside the clinic, Ganit is a devoted mother of four and a certified doula who loves
+              traveling, reading, and a perfectly brewed cup of coffee.
+            </p>
+          </div>
+
+          <br />
+          <a href="#contact" class="btn">Book a Consultation</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       TREATMENTS OVERVIEW SECTION
+  ============================================= -->
+  <section id="treatments">
+    <div class="container">
+
+      <div class="section-header fade-up">
+        <div class="rule"></div>
+        <p class="label">What We Offer</p>
+        <h2 class="display-heading">Our Treatments</h2>
+        <p>A curated menu of aesthetic services designed to help you look refreshed — never overdone.</p>
+      </div>
+
+      <div class="treatments-grid">
+
+        <!-- ── Treatment 1 ── -->
+        <div class="treatment-card fade-up">
+          <div class="treatment-number">01</div>
+          <h3 class="treatment-name">Neuromodulator Wrinkle Relaxer</h3>
+            <div class="treatment-desc">
+            <p style="font-weight: 500; color: var(--color-dark); margin-bottom: 12px;">
+              Rediscover Youthful Radiance
+            </p>
+            <p style="margin-bottom: 12px;">
+              Our wrinkle relaxer injections, including renowned brands like Botox, Dysport, and Xeomin, are designed to smooth and soften the appearance of fine lines and wrinkles. These safe and effective treatments target specific facial muscles, offering a refreshed and youthful look.
+            </p>
+            <p style="font-weight: 500; margin-bottom: 8px;">Key Benefits:</p>
+            <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 13px; color: var(--color-mid); line-height: 1.8;">
+              <li>Reduction of forehead lines, crow's feet, and what's commonly known as "11's"</li>
+              <li>Quick procedure with minimal downtime</li>
+              <li>Long-lasting, preventive results with regular treatments</li>
+            </ul>
+            <p>
+              Each treatment plan is customized, ensuring your unique facial features are preserved while achieving a refreshed appearance.
+            </p>
+            </div>
+        </div>
+
+        <!-- ── Treatment 2 ── -->
+        <div class="treatment-card fade-up">
+          <div class="treatment-number">02</div>
+          <h3 class="treatment-name">Dermal Filler</h3>
+            <div class="treatment-desc">
+            <p style="font-weight: 500; color: var(--color-dark); margin-bottom: 12px;">
+              Enhance, Contour, and Volume
+            </p>
+            <p style="margin-bottom: 12px;">
+              Vitality Health Group offers a variety of dermal fillers such as RHA, Juvederm, Belotero, and Radiesse to restore lost volume, define contours, and smooth deep lines. These fillers are formulated to mimic the body's natural components for a subtle yet significant enhancement.
+            </p>
+            <p style="font-weight: 500; margin-bottom: 8px;">Key Benefits:</p>
+            <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 13px; color: var(--color-mid); line-height: 1.8;">
+              <li>Immediate and noticeable results</li>
+              <li>Restoration of youthful fullness to lips, cheeks, and under-eye areas</li>
+              <li>Safe and minimally invasive with natural-looking outcomes</li>
+            </ul>
+            <p>
+              Our expert practitioners work with you to create a personalized plan that addresses your specific aesthetic desires, achieving harmony and balance in your features.
+            </p>
+            </div>
+        </div>
+
+        <!-- ── Treatment 3 ── -->
+        <div class="treatment-card fade-up">
+          <div class="treatment-number">03</div>
+          <h3 class="treatment-name">Full Face Harmonization</h3>
+          <p class="treatment-desc">
+            A comprehensive approach combining multiple treatments to achieve
+            facial balance and symmetry while preserving your natural character.
+          </p>
+        </div>
+
+        <!-- ── Treatment 4 ── -->
+        <div class="treatment-card fade-up">
+          <div class="treatment-number">04</div>
+          <h3 class="treatment-name">Skin Care Treatments</h3>
+            <div class="treatment-desc">
+            <p style="font-weight: 500; color: var(--color-dark); margin-bottom: 12px;">
+              Refresh and Revitalize Your Skin
+            </p>
+            <p style="margin-bottom: 12px;">
+              Our facial treatments are designed to rejuvenate and enhance your skin's natural glow. Whether it's Aqua Gold microneedling for a radiant complexion, TCA peel to achieve smoother skin, or dermaplaning for immediate softness, our treatments deliver impeccable results.
+            </p>
+            <p style="font-weight: 500; margin-bottom: 8px;">Key Benefits:</p>
+            <ul style="margin-left: 20px; margin-bottom: 12px; font-size: 13px; color: var(--color-mid); line-height: 1.8;">
+              <li>Aqua Gold Microneedling: Infuses a blend of Botox and hyaluronic acid superficially to rejuvenate skin, reduce pore size, and deliver a flawless complexion.</li>
+              <li>TCA Peel: Improves skin texture and tone with a targeted peel that reduces the appearance of fine lines and blemishes.</li>
+              <li>Dermaplaning: Exfoliates the surface layer of your skin, removing dead skin cells and vellus hair for immediate smoothness.</li>
+            </ul>
+            <p>
+              Each treatment is customized to your skin type and goals, ensuring optimal results and a radiant, refreshed appearance.
+            </p>
+            </div>
+        </div>
+
+        <!-- ── Treatment 5 ── -->
+        <div class="treatment-card fade-up">
+          <div class="treatment-number">05</div>
+          <h3 class="treatment-name">Hyperhidrosis</h3>
+          <p class="treatment-desc">
+            Targeted Botox injections to effectively reduce excessive sweating
+            in the underarms, hands, and feet — providing long-lasting comfort.
+          </p>
+        </div>
+
+        <!-- ── Treatment 6 ── -->
+        <div class="treatment-card fade-up">
+          <div class="treatment-number">06</div>
+          <h3 class="treatment-name">TMJ Treatment</h3>
+          <p class="treatment-desc">
+            Botox injections to relax the masseter muscle, relieving jaw tension,
+            teeth-grinding pain, and providing a subtle facial-slimming effect.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       PRICING SECTION
+       – Wrinkle Relaxer packages + add-ons
+  ============================================= -->
+  <section id="pricing">
+    <div class="container">
+
+      <div class="section-header fade-up">
+        <div class="rule"></div>
+        <!-- <p class="label">Consultation</p> -->
+        <h2 class="display-heading">Consultation Fee</h2>
+        <!-- <p>
+          A $250 consultation fee applies toward your first treatment
+          when treatment is performed the same day.
+        </p> -->
+      </div>
+
+      <div class="pricing-cards" style="grid-template-columns: 1fr; max-width: 420px; margin: 0 auto 48px;">
+        <div class="price-card fade-up">
+          <div class="area-name">Cosmetic Consultation</div>
+          <div class="price">$250</div>
+          <div class="price-note">Applied to first treatment when done same day</div>
+        </div>
+      </div>
+
+
+      <div style="text-align:center; margin-top:40px;" class="fade-up">
+        <a href="#contact" class="btn btn-filled">Book Your Consultation</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       TREATMENT AREA DETAIL SECTION
+       – Describes individual injection zones
+  ============================================= -->
+  <section id="treatment-details">
+    <div class="container">
+
+      <div class="section-header fade-up">
+        <div class="rule"></div>
+        <p class="label">Treatment Areas</p>
+        <h2 class="display-heading">What We Can Address</h2>
+        <p>Each area is treated with precision and a discerning aesthetic eye.</p>
+      </div>
+
+      <div class="detail-list">
+
+        <!-- Glabella -->
+        <div class="detail-item fade-up">
+          <h3>Glabella</h3>
+          <p class="detail-subtitle">The "11s" / Frown Lines</p>
+          <p>
+            Smooth frown lines between the brows that can make you look stern or tired.
+            Targeted treatment restores a naturally serene, approachable expression.
+          </p>
+        </div>
+
+        <!-- Forehead -->
+        <div class="detail-item fade-up">
+          <h3>Forehead</h3>
+          <p class="detail-subtitle">Horizontal Lines</p>
+          <p>
+            Expert injections soften horizontal lines that can portray stress or add years,
+            giving you a refreshed, clear, youthful appearance.
+          </p>
+        </div>
+
+        <!-- Crow's Feet -->
+        <div class="detail-item fade-up">
+          <h3>Crow's Feet</h3>
+          <p class="detail-subtitle">Lateral Eye Lines</p>
+          <p>
+            Reduce fine lines around the outer eyes while preserving natural expression,
+            maintaining your youthful glow through every smile and laugh.
+          </p>
+        </div>
+
+        <!-- Neck Bands -->
+        <div class="detail-item fade-up">
+          <h3>Neck Bands</h3>
+          <p class="detail-subtitle">Nefertiti Lift</p>
+          <p>
+            The Nefertiti Lift relaxes the platysma muscle to counter sagging neck bands
+            and soften vertical lines — one of the most transformative non-surgical treatments.
+          </p>
+        </div>
+
+        <!-- Brow Lift -->
+        <div class="detail-item fade-up">
+          <h3>Brow Lift</h3>
+          <p class="detail-subtitle">Subtle Elevation</p>
+          <p>
+            Strategic placement opens and lifts the brow arch for a more awake, refreshed
+            look — without the frozen appearance.
+          </p>
+        </div>
+
+        <!-- Jaw Slimming -->
+        <div class="detail-item fade-up">
+          <h3>Jaw Slimming</h3>
+          <p class="detail-subtitle">Masseter Reduction / TMJ</p>
+          <p>
+            Relax an overactive masseter to slim the lower face, reduce teeth grinding,
+            and relieve TMJ discomfort simultaneously.
+          </p>
+        </div>
+
+        <!-- Lip Flip -->
+        <div class="detail-item fade-up">
+          <h3>Lip Flip</h3>
+          <p class="detail-subtitle">Fuller Pout · No Added Volume</p>
+          <p>
+            A subtle curl of the upper lip creates allure and charm without adding filler,
+            perfect for enhancing your natural contours.
+          </p>
+        </div>
+
+        <!-- Trap Tox -->
+        <div class="detail-item fade-up">
+          <h3>Trap Tox</h3>
+          <p class="detail-subtitle">Barbie Tox / Trapezius Slimming</p>
+          <p>
+            Relax the trapezius muscle to elongate and slim the neck-to-shoulder line,
+            reduce tension headaches, and improve posture.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="care-info">
+    <div class="care-wrap">
+
+      <div class="care-header fade-up">
+        <p class="label">Patient Guidance</p>
+        <h2 class="sub-heading">Pre &amp; Post Treatment Instructions</h2>
+        <p class="care-intro">
+          Helpful care notes for injectables and dermal fillers. Open each item to review your before-and-after guidance.
+        </p>
+      </div>
+
+      <div class="care-list">
+
+        <details class="care-item fade-up">
+          <summary>
+            <span>Injectables — Pre Treatment</span>
+            <span class="care-toggle">+</span>
+          </summary>
+          <div class="care-content">
+            <ul>
+              <li>Avoid intense cardiovascular exercise for 24 hours (cycling, running, HIIT classes, etc.).</li>
+              <li>Plan to wait 5 days before doing a facial or other skin treatments.</li>
+              <li>You can expect neurotoxin full effect from about 3 days up to 2 weeks.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="care-item fade-up">
+          <summary>
+            <span>Injectables — Post Treatment</span>
+            <span class="care-toggle">+</span>
+          </summary>
+          <div class="care-content">
+            <p>
+              Mild swelling and bruising can occur after cosmetic injections and usually resolve quickly. Do not apply cosmetics or creams to any injection site for at least 12 hours.
+            </p>
+            <ul>
+              <li>For 72 hours before your visit, avoid alcohol, aspirin, ibuprofen, naproxen, CoQ10, and fish oil to reduce bruising risk.</li>
+              <li>To support recovery, sublingual Arnica or topical Arnica gel may be used before and after treatment.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="care-item fade-up">
+          <summary>
+            <span>Dermal Filler — Pre Treatment</span>
+            <span class="care-toggle">+</span>
+          </summary>
+          <div class="care-content">
+            <ul>
+              <li>To support recovery, you may use sublingual Arnica or topical Arnica gel before treatment.</li>
+              <li>For 72 hours before your visit, avoid alcohol, aspirin, ibuprofen, naproxen, CoQ10, and fish oil to reduce bruising risk.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="care-item fade-up">
+          <summary>
+            <span>Dermal Filler — Post Treatment</span>
+            <span class="care-toggle">+</span>
+          </summary>
+          <div class="care-content">
+            <ul>
+              <li>Avoid blood-thinning medications for 3 days.</li>
+              <li>Avoid alcohol for 3 days.</li>
+              <li>If swelling occurs, sleep with your head elevated for 2 to 3 days.</li>
+              <li>You may take acetaminophen (Tylenol) for mild tenderness or discomfort.</li>
+              <li>Wait at least 2 weeks before any skin care or laser treatments.</li>
+              <li>Bruising and swelling are expected; full effect and tissue integration usually take 2 to 3 weeks.</li>
+              <li>Arnica Montana may help minimize bruising (often started 1 week before injections).</li>
+              <li>Do not apply cleanser, moisturizer, or makeup until the day after treatment.</li>
+              <li>Do not massage, touch, or manipulate the injection site.</li>
+              <li>Ice may be used in the first 12 hours: 15 minutes each hour as needed.</li>
+              <li>Avoid heavy exercise the day of treatment.</li>
+              <li>Avoid dental work for 2 weeks after filler injections.</li>
+              <li>Avoid sleeping face down, on your side, or on your stomach for 7 to 10 days; sleep elevated on your back.</li>
+            </ul>
+
+            <p class="care-warning-title">Contact the office immediately if you notice:</p>
+            <ul>
+              <li>Sharp pain</li>
+              <li>Headache</li>
+              <li>Increasing warmth or coolness to touch</li>
+              <li>An unusual bruise or spreading bruise</li>
+              <li>Skin changes, severe swelling, or redness</li>
+            </ul>
+          </div>
+        </details>
+
+      </div>
+
+      <p class="care-note fade-up">
+        These are general guidelines. Your personalized post-care plan may vary based on your treatment.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       PHILOSOPHY QUOTE BAND
+  ============================================= -->
+  <section id="philosophy">
+    <div class="container">
+      <div class="rule"></div>
+      <blockquote class="philosophy-quote fade-up">
+        "Whether you're seeking subtle enhancements or a more dramatic transformation,
+        I'm dedicated to helping you achieve your desired results while maintaining a natural look."
+      </blockquote>
+      <p class="philosophy-attr">— Ganit Reis, RN BS-N</p>
+    </div>
+  </section>
+
+  <!-- =============================================
+       CONTACT / BOOKING SECTION
+  ============================================= -->
+  <section id="contact">
+    <div class="container">
+
+      <div class="contact-grid">
+
+        <!-- Left: contact info -->
+        <div class="contact-info fade-up">
+          <p class="label">Get in Touch</p>
+          <h2 class="display-heading">Book Your<br><em style="font-style:italic; color:var(--color-accent-dark)">Consultation</em></h2>
+
+          <div class="contact-item">
+            <span class="contact-label">Phone</span>
+            <!-- EDIT: update phone number here if it changes -->
+            <a href="tel:+18722738513" class="contact-value">+1 (872) 273-8513</a>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-label">Email</span>
+            <!-- EDIT: update email here if it changes -->
+            <a href="mailto:rejuvenatewithganit@gmail.com" class="contact-value">rejuvenatewithganit@gmail.com</a>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-label">Location</span>
+            <!-- EDIT: update address here if it changes -->
+            <span class="contact-value">110 E 56th Street, Suite 300<br>New York, NY 10022</span>
+          </div>
+
+          <div class="contact-item" style="border-bottom:none;">
+            <span class="contact-label">Hours</span>
+            <!-- EDIT: update office hours as needed -->
+            <span class="contact-value">By Appointment Only</span>
+          </div>
+        </div>
+
+        <!-- Right: inquiry form -->
+        <div class="fade-up">
+          <p class="label" style="margin-bottom:24px;">Send an Inquiry</p>
+
+          <!--
+            FORM INTEGRATION NOTE:
+            This form uses FormSubmit so visitors can send inquiries directly
+            from the website (without opening their email app).
+            Important: after the first live submission, confirm the activation
+            email from FormSubmit for this recipient inbox.
+          -->
+          <form class="contact-form"
+                id="inquiryForm"
+                action="https://formsubmit.co/rejuvenatewithganit@gmail.com"
+                method="POST">
+
+            <input type="hidden" name="_subject" value="New Website Inquiry — Rejuvenate with Ganit" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" id="formNextUrl" value="" />
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
+            <div id="formSuccess" class="form-success" role="status" aria-live="polite">
+              Submitted successfully — thank you. We will respond shortly.
+            </div>
+
+            <div>
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required />
+            </div>
+
+            <div>
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required />
+            </div>
+
+            <div>
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="+1 (000) 000-0000" required/>
+            </div>
+
+            <div>
+              <label for="treatment">Treatment of Interest</label>
+              <!-- EDIT: add or remove options from this dropdown as services change -->
+              <select id="treatment" name="treatment">
+                <option value="" disabled selected>Select a treatment…</option>
+                <option>Neuromodulator Wrinkle Relaxer</option>
+                <option>Dermal Filler</option>
+                <option>Full Face Harmonization</option>
+                <option>Skin Care Treatments</option>
+                <option>Hyperhidrosis</option>
+                <option>TMJ Treatment</option>
+                <option>Not Sure — Consultation Only</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message">Message (Optional)</label>
+              <textarea id="message" name="message" placeholder="Any questions or notes for Ganit…"></textarea>
+            </div>
+
+            <!-- <p class="form-note">* Sent securely from this website — no email app required.</p>
+            <p class="form-note">* Consultation fee ($200) is applied toward your treatment if booked within 30 days.</p> -->
+
+            <button type="submit" class="btn btn-filled" style="width:100%; text-align:center;">
+              Send Inquiry
+            </button>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       FOOTER
+  ============================================= -->
+  <footer>
+    <div class="footer-inner">
+
+      <!-- Brand blurb -->
+      <div>
+        <div class="footer-brand">Rejuvenate <em>with Ganit</em></div>
+        <p class="footer-tagline">
+          Expert aesthetic injections in the heart of Manhattan.
+          Natural beauty, expertly refined — tailored to you.
+        </p>
+      </div>
+
+      <!-- Quick links -->
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#about">About Ganit</a></li>
+          <li><a href="#treatments">Treatments</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Book Now</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact details repeated in footer -->
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <!-- EDIT: keep these in sync with the contact section above -->
+          <li><a href="tel:+18722738513">+1 (872) 273-8513</a></li>
+          <li><a href="mailto:rejuvenatewithganit@gmail.com">rejuvenatewithganit@gmail.com</a></li>
+          <li><a href="#">110 E 56th St, Suite 300<br>New York, NY 10022</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom container">
+      <span>© 2026 Rejuvenate with Ganit. All rights reserved.</span>
+      <span>Vitality Health Group · New York, NY</span>
+    </div>
+  </footer>
+
+  <!-- =============================================
+       JAVASCRIPT
+       – Mobile nav toggle
+       – Scroll-triggered fade-in animations
+  ============================================= -->
+  <script>
+    /* ── Mobile nav toggle ── */
+    function toggleNav() {
+      document.getElementById('mobileNav').classList.toggle('open');
+    }
+
+    /* ── Intersection Observer for .fade-up elements ──
+       Watches each .fade-up element; adds .visible class
+       when it enters the viewport to trigger the CSS transition.
+       Threshold: element must be 12% visible before animating.
+    */
+    const fadeEls = document.querySelectorAll('.fade-up');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          // Stop observing after it's revealed (one-shot animation)
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    fadeEls.forEach(el => observer.observe(el));
+
+    /* ── Nav shrink on scroll ──
+       Slightly reduces nav padding once the user scrolls down,
+       keeping it compact and unobtrusive.
+    */
+    const navEl = document.querySelector('nav');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        navEl.style.padding = '10px 40px';
+      } else {
+        navEl.style.padding = '14px 40px';
+      }
+    });
+
+    /* ── Form success return handling ──
+       Builds a same-page redirect URL for FormSubmit and
+       shows an on-site success message after redirect.
+    */
+    const nextInput = document.getElementById('formNextUrl');
+    const successBanner = document.getElementById('formSuccess');
+
+    if (nextInput) {
+      nextInput.value = `${window.location.origin}${window.location.pathname}?submitted=1#contact`;
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('submitted') === '1' && successBanner) {
+      successBanner.classList.add('visible');
+      const cleanUrl = `${window.location.origin}${window.location.pathname}#contact`;
+      window.history.replaceState({}, '', cleanUrl);
+    }
+  </script>
+
+</body>
+</html>
